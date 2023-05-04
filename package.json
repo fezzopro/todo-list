@@ -1,7 +1,7 @@
 {
-  "name": "js-webpack",
+  "name": "To-do list",
   "version": "1.0.0",
-  "description": "Webpack configuration template",
+  "description": "This is a to do list web application, that will let users create their to do list ",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fezzopro/js-webpack.git"
+    "url": "git+https://github.com/fezzopro/todo-list.git"
   },
   "keywords": [],
   "author": "Felix KAMANA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fezzopro/js-webpack/issues"
+    "url": "https://github.com/fezzopro/todo-list/issues"
   },
-  "homepage": "https://github.com/fezzopro/js-webpack#readme",
+  "homepage": "https://github.com/fezzopro/todo-list#readme",
   "dependencies": {
     "lodash": "^4.17.21"
   },
