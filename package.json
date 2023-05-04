@@ -1,0 +1,33 @@
+{
+  "name": "js-webpack",
+  "version": "1.0.0",
+  "description": "Webpack configuration template",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fezzopro/js-webpack.git"
+  },
+  "keywords": [],
+  "author": "Felix KAMANA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fezzopro/js-webpack/issues"
+  },
+  "homepage": "https://github.com/fezzopro/js-webpack#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.1",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  }
+}
