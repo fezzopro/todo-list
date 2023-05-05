@@ -18,7 +18,7 @@ class EventHandlers {
       storage.saveToLocalStorage({
         description: this.description,
         completed: this.completed,
-        index: this.index,
+        index: this.index + 1,
       });
       components.createTaskList(storage.readLocalStorage());
     }
