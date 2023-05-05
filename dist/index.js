@@ -57,7 +57,7 @@ class Storage {
     const fileteredtasks = this.readLocalStorage()
       .filter((task) => task.index !== Number.parseInt(taskId, 10));
     for (let index = 0; index < fileteredtasks.length; index += 1) {
-      fileteredtasks[index].index = index;
+      fileteredtasks[index].index = index + 1;
     }
     this.saveAsLocalSorage(fileteredtasks);
   };
@@ -65,7 +65,7 @@ class Storage {
   deleteAllCompleteFromLocalStorage = () => {
     const fileteredtasks = this.readLocalStorage().filter((task) => task.completed === false);
     for (let index = 0; index < fileteredtasks.length; index += 1) {
-      fileteredtasks[index].index = index;
+      fileteredtasks[index].index = index + 1;
     }
     this.saveAsLocalSorage(fileteredtasks);
   };
@@ -74,7 +74,18 @@ class Storage {
 
   updateTaskDescription = (index, description) => {
     const updatedTasks = this.readLocalStorage();
-    updatedTasks[index].description = description;
+    updatedTasks[index - 1].description = description;
+    this.saveAsLocalSorage(updatedTasks);
+  };
+
+  updateTaskCompleteStatus = (index) => {
+    const updatedTasks = this.readLocalStorage();
+    updatedTasks.find((object, i) => { // eslint-disable-line array-callback-return
+      if (object.index === Number.parseInt(index, 10)) {
+        updatedTasks[i]
+          .completed = (object.completed) ? false : true; // eslint-disable-line no-unneeded-ternary
+      }
+    });
     this.saveAsLocalSorage(updatedTasks);
   };
 }
@@ -159,6 +170,7 @@ class Components {
     this.formEventListner();
     this.deleteEventListner();
     this.editEventListner();
+    this.completeTaskEventListner();
   };
 
   formEventListner = () => {
@@ -196,6 +208,15 @@ class Components {
           description.blur();
         }
         _eventHandlers_js__WEBPACK_IMPORTED_MODULE_0__["default"].updateTaskEvent(description.childNodes);
+      });
+    });
+  };
+
+  completeTaskEventListner = () => {
+    const checkBoxes = document.querySelectorAll('.check-box');
+    checkBoxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        _eventHandlers_js__WEBPACK_IMPORTED_MODULE_0__["default"].completeTaskEvent(checkbox.value);
       });
     });
   };
@@ -251,6 +272,11 @@ class EventHandlers {
 
   updateTaskEvent = (nodes) => {
     _storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].updateTaskDescription(nodes[1].value, nodes[0].textContent);
+  };
+
+  completeTaskEvent = (taskId) => {
+    _storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].updateTaskCompleteStatus(taskId);
+    _components_js__WEBPACK_IMPORTED_MODULE_1__["default"].createTaskList(_storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].readLocalStorage());
   };
 }
 
