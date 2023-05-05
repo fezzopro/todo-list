@@ -68,6 +68,7 @@ class Components {
     this.formEventListner();
     this.deleteEventListner();
     this.editEventListner();
+    this.completeTaskEventListner();
   };
 
   formEventListner = () => {
@@ -105,6 +106,15 @@ class Components {
           description.blur();
         }
         eventHandlers.updateTaskEvent(description.childNodes);
+      });
+    });
+  };
+
+  completeTaskEventListner = () => {
+    const checkBoxes = document.querySelectorAll('.check-box');
+    checkBoxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', ()=>{
+        eventHandlers.completeTaskEvent(checkbox.value);
       });
     });
   };
