@@ -1,4 +1,5 @@
-import eventHandlers from './eventHandlers.js'; /*eslint import/no-cycle: [2, { maxDepth: 1 }]*/
+/*eslint import/no-cycle: [2, { maxDepth: 1 }]*/
+import eventHandlers from './eventHandlers.js';
 
 class Components {
   constructor() {
@@ -27,11 +28,11 @@ class Components {
 
     const taskBin = document.createElement('span');
     taskBin.className = 'task-bin';
-  
+
     const taskBinInput = document.createElement('input');
     taskBinInput.setAttribute('type', 'hidden');
     taskBinInput.value = singleTak.index;
-  
+
     const taskDescriptionInput = document.createElement('input');
     taskDescriptionInput.setAttribute('type', 'hidden');
     taskDescriptionInput.value = singleTak.index;

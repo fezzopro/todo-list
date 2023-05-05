@@ -1,5 +1,6 @@
+/*eslint import/no-cycle: [2, { maxDepth: 1 }]*/
 import storage from './storage.js';
-import components from './components.js'; 
+import components from './components.js';
 
 class EventHandlers {
   constructor() {
