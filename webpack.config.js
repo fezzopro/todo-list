@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/assets/js/index.js'
+    index: './src/assets/js/index.js',
   },
   output: {
     filename: '[name].js',
@@ -30,5 +30,5 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
-  mode: 'none'
+  mode: 'none',
 };
