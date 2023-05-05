@@ -31,8 +31,8 @@ class Storage {
   }
 
   deleteFromLocalStorage = (taskId) => {
-    const fileteredtasks = this.readLocalStorage().filter((task) => task.index != taskId);
-    for (let index = 0; index < fileteredtasks.length; index++) {
+    const fileteredtasks = this.readLocalStorage().filter((task) => task.index !== Number.parseInt(taskId));
+    for (let index = 0; index < fileteredtasks.length; index += 1) {
       fileteredtasks[index].index = index;
     }
     this.saveAsLocalSorage(fileteredtasks);
@@ -40,7 +40,7 @@ class Storage {
 
   deleteAllCompleteFromLocalStorage = () => {
     const fileteredtasks = this.readLocalStorage().filter((task) => task.completed === false);
-    for (let index = 0; index < fileteredtasks.length; index++) {
+    for (let index = 0; index < fileteredtasks.length; index += 1) {
       fileteredtasks[index].index = index;
     }
     this.saveAsLocalSorage(fileteredtasks);

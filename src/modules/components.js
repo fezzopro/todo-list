@@ -1,9 +1,10 @@
-import eventHandlers from "./eventHandlers";
+import eventHandlers from './eventHandlers.js'; /*eslint import/no-cycle: [2, { maxDepth: 1 }]*/
 
 class Components {
-  constructor() { 
+  constructor() {
     this.clearCompletedListner();
   }
+
   createTaskListItem = (singleTak) => {
     const li = document.createElement('li');
     li.className = 'list-item border-bottom';
@@ -18,7 +19,7 @@ class Components {
 
     const descriptionSpan = document.createElement('span');
     descriptionSpan.className = (singleTak.completed === false) ? 'description' : 'description completed';
-    descriptionSpan.setAttribute('contenteditable', true)
+    descriptionSpan.setAttribute('contenteditable', true);
     descriptionSpan.textContent = singleTak.description;
 
     const iconsSpan = document.createElement('span');
@@ -26,11 +27,11 @@ class Components {
 
     const taskBin = document.createElement('span');
     taskBin.className = 'task-bin';
-    
+  
     const taskBinInput = document.createElement('input');
     taskBinInput.setAttribute('type', 'hidden');
     taskBinInput.value = singleTak.index;
-    
+  
     const taskDescriptionInput = document.createElement('input');
     taskDescriptionInput.setAttribute('type', 'hidden');
     taskDescriptionInput.value = singleTak.index;
@@ -53,7 +54,7 @@ class Components {
 
   createTaskList = (StoredTasks) => {
     const ul = document.querySelector('.todo-lists ul');
-    ul.textContent ='';
+    ul.textContent = '';
     if (StoredTasks.length > 0) {
       StoredTasks.forEach((singleTask) => {
         ul.appendChild(this.createTaskListItem(singleTask));
@@ -62,7 +63,7 @@ class Components {
 
     this.eventListners();
   }
-  
+
   eventListners = () => {
     this.formEventListner();
     this.deleteEventListner();
@@ -95,14 +96,15 @@ class Components {
     });
   };
 
-  editEventListner = () =>{
+  editEventListner = () => {
     const descriptions = document.querySelectorAll('.description');
 
-    descriptions.forEach(description => {
-      description.addEventListener('keyup', (event)=>{ 
-        if (event.key !== 'Enter') {
-          eventHandlers.updateTaskEvent(description.childNodes); 
+    descriptions.forEach((description) => {
+      description.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+          description.blur();
         }
+        eventHandlers.updateTaskEvent(description.childNodes);
       });
     });
   };
