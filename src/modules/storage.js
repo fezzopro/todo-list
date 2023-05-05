@@ -32,7 +32,9 @@ class Storage {
 
   deleteFromLocalStorage = (taskId) => {
     const fileteredtasks = this.readLocalStorage().filter((task) => task.index != taskId);
-    console.log(fileteredtasks);
+    for (let index = 0; index < fileteredtasks.length; index++) {
+      fileteredtasks[index].index = index;
+    }
     this.saveAsLocalSorage(fileteredtasks);
   };
 
