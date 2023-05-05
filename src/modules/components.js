@@ -30,9 +30,15 @@ class Components {
     const taskBinInput = document.createElement('input');
     taskBinInput.setAttribute('type', 'hidden');
     taskBinInput.value = singleTak.index;
+    
+    const taskDescriptionInput = document.createElement('input');
+    taskDescriptionInput.setAttribute('type', 'hidden');
+    taskDescriptionInput.value = singleTak.index;
 
     const taskInfoSpan = document.createElement('span');
     taskInfoSpan.className = 'task-info';
+
+    descriptionSpan.appendChild(taskDescriptionInput);
 
     taskBin.appendChild(taskBinInput);
 
@@ -60,6 +66,7 @@ class Components {
   eventListners = () => {
     this.formEventListner();
     this.deleteEventListner();
+    this.editEventListner();
   };
 
   formEventListner = () => {
@@ -84,8 +91,19 @@ class Components {
   clearCompletedListner = () => {
     document.querySelector('.clear-btn').addEventListener('click', (event) => {
       event.preventDefault();
-      console.log('clear all');
       eventHandlers.clearAllTaskEvent();
+    });
+  };
+
+  editEventListner = () =>{
+    const descriptions = document.querySelectorAll('.description');
+
+    descriptions.forEach(description => {
+      description.addEventListener('keyup', (event)=>{ 
+        if (event.key !== 'Enter') {
+          eventHandlers.updateTaskEvent(description.childNodes); 
+        }
+      });
     });
   };
 }
