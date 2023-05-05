@@ -119,6 +119,24 @@ input:focus-visible {
   background-color: #fffeca;
 }
 
+.task-bin {
+  content: url(../imgs/svg/bin.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 18px;
+  opacity: 0.5;
+}
+
+.task-bin:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.task-bin:active {
+  opacity: 1;
+  cursor: progress;
+}
+
 .task-info {
   content: url(../imgs/svg/more.svg);
   background-repeat: no-repeat;
