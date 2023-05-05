@@ -37,6 +37,11 @@ class EventHandlers {
   updateTaskEvent = (nodes) => {
     storage.updateTaskDescription(nodes[1].value, nodes[0].textContent);
   };
+
+  completeTaskEvent = (taskId) => {
+    storage.updateTaskCompleteStatus(taskId);
+    components.createTaskList(storage.readLocalStorage());
+  };
 }
 
 export default new EventHandlers();
