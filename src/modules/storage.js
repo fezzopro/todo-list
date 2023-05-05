@@ -2,6 +2,9 @@ class Storage {
   constructor() {
     this.TASK_COLLECTION_NAME = 'collectionOfTasks';
     this.localStorage = localStorage;
+    if (!this.isLocalStorage()) {
+      this.createlocalStorage();
+    }
   }
 
   isLocalStorage = () => {
@@ -26,6 +29,12 @@ class Storage {
   saveAsLocalSorage = (tasks) => {
     this.localStorage.setItem(this.TASK_COLLECTION_NAME, JSON.stringify(tasks));
   }
+
+  deleteFromLocalStorage = (taskId) => {
+    const fileteredtasks = this.readLocalStorage().filter((task) => task.index != taskId);
+    console.log(fileteredtasks);
+    this.saveAsLocalSorage(fileteredtasks);
+  };
 
   getCollectionName = () => this.TASK_COLLECTION_NAME;
 }
