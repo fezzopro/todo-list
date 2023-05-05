@@ -51,7 +51,18 @@ class Storage {
 
   updateTaskDescription = (index, description) => {
     const updatedTasks = this.readLocalStorage();
-    updatedTasks[index].description = description;
+    updatedTasks[index - 1].description = description;
+    this.saveAsLocalSorage(updatedTasks);
+  };
+
+  updateTaskCompleteStatus = (index) => {
+    const updatedTasks = this.readLocalStorage();
+    updatedTasks.find((object, i) => { // eslint-disable-line array-callback-return
+      if (object.index === Number.parseInt(index, 10)) {
+        updatedTasks[i]
+          .completed = (object.completed) ? false : true; // eslint-disable-line no-unneeded-ternary
+      }
+    });
     this.saveAsLocalSorage(updatedTasks);
   };
 }
