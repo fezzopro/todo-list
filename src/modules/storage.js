@@ -47,5 +47,11 @@ class Storage {
   };
 
   getCollectionName = () => this.TASK_COLLECTION_NAME;
+
+  updateTaskDescription = (index, description) => {
+    const updatedTasks = this.readLocalStorage();
+    updatedTasks[index].description = description;
+    this.saveAsLocalSorage(updatedTasks);
+  };
 }
 export default new Storage();
