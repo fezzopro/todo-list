@@ -1,7 +1,9 @@
 import eventHandlers from "./eventHandlers";
 
 class Components {
-  constructor() { }
+  constructor() { 
+    this.clearCompletedListner();
+  }
   createTaskListItem = (singleTak) => {
     const li = document.createElement('li');
     li.className = 'list-item border-bottom';
@@ -77,7 +79,14 @@ class Components {
         eventHandlers.deleteTaskEvent(bin);
       });
     });
-    
+  };
+
+  clearCompletedListner = () => {
+    document.querySelector('.clear-btn').addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('clear all');
+      eventHandlers.clearAllTaskEvent();
+    });
   };
 }
 
