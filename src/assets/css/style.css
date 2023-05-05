@@ -182,6 +182,10 @@ input:focus-visible {
   opacity: 1;
 }
 
+.task-icons {
+  min-width: fit-content;
+}
+
 @keyframes rotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
