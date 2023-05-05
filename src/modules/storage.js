@@ -54,12 +54,12 @@ class Storage {
     updatedTasks[index - 1].description = description;
     this.saveAsLocalSorage(updatedTasks);
   };
-  
+
   updateTaskCompleteStatus = (index) => {
     const updatedTasks = this.readLocalStorage();
-    updatedTasks.find((object, i) => {
+    updatedTasks.find((object, i) => { // eslint-disable-line array-callback-return
       if (object.index === Number.parseInt(index, 10)) {
-        updatedTasks[i].completed = (object.completed) ?  false :  true;
+        updatedTasks[i].completed = (object.completed === true) ? false : true;
       }
     });
     this.saveAsLocalSorage(updatedTasks);

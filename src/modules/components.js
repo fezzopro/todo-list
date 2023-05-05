@@ -113,7 +113,7 @@ class Components {
   completeTaskEventListner = () => {
     const checkBoxes = document.querySelectorAll('.check-box');
     checkBoxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', ()=>{
+      checkbox.addEventListener('change', () => {
         eventHandlers.completeTaskEvent(checkbox.value);
       });
     });
