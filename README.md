@@ -53,6 +53,9 @@
 
 - **[List Tasks]** 
 - **[Strick Copleted Tasks]**
+- **[Add New Task]**
+- **[Delete Task]**
+- **[Update Task]**
 
 <!-- GETTING STARTED -->
 
@@ -120,9 +123,6 @@ You can deploy this project using **[GitHub Page](https://pages.github.com/)**
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [Add New Task]
-- [Delete Task]
-- [Update Task]
 - [Refresh Tasks]
 - [Complete Task]
 - [Clear all Tasks]
