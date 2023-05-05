@@ -38,6 +38,14 @@ class Storage {
     this.saveAsLocalSorage(fileteredtasks);
   };
 
+  deleteAllCompleteFromLocalStorage = () => {
+    const fileteredtasks = this.readLocalStorage().filter((task) => task.completed === false);
+    for (let index = 0; index < fileteredtasks.length; index++) {
+      fileteredtasks[index].index = index;
+    }
+    this.saveAsLocalSorage(fileteredtasks);
+  };
+
   getCollectionName = () => this.TASK_COLLECTION_NAME;
 }
 export default new Storage();
