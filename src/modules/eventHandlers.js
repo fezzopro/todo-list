@@ -34,7 +34,9 @@ class EventHandlers {
     components.createTaskList(storage.readLocalStorage());
   };
 
-  updateTaskEvent = () => {};
+  updateTaskEvent = (nodes) => {
+    storage.updateTaskDescription(nodes[1].value, nodes[0].textContent);
+  };
 }
 
 export default new EventHandlers();
