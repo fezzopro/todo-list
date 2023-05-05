@@ -29,9 +29,12 @@ class EventHandlers {
     components.createTaskList(storage.readLocalStorage());
   };
 
+  clearAllTaskEvent = () => { 
+    storage.deleteAllCompleteFromLocalStorage();
+    components.createTaskList(storage.readLocalStorage());
+  };
+
   updateTaskEvent = () => {};
-  completeTaskEvent = () => {};
-  clearAllTaskEvent = () => {};
 }
 
 export default new EventHandlers();
