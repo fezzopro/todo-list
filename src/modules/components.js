@@ -1,5 +1,4 @@
-/*eslint import/no-cycle: [2, { maxDepth: 1 }]*/
-import eventHandlers from './eventHandlers.js';
+import eventHandlers from './eventHandlers.js'; // eslint-disable-line import/no-cycle
 
 class Components {
   constructor() {

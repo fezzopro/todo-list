@@ -32,7 +32,7 @@ class Storage {
 
   deleteFromLocalStorage = (taskId) => {
     const fileteredtasks = this.readLocalStorage()
-      .filter((task) => task.index !== Number.parseInt(taskId));
+      .filter((task) => task.index !== Number.parseInt(taskId, 10));
     for (let index = 0; index < fileteredtasks.length; index += 1) {
       fileteredtasks[index].index = index;
     }
