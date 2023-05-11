@@ -1,8 +1,8 @@
-import storage from '../src/modules/storage';
+import storage from '../src/modules/storage.js';
 
 describe('Storage Module Test Suit', () => {
   beforeEach(() => {
-    storage.createlocalStorage()
+    storage.createlocalStorage();
   });
 
   afterEach(() => {
@@ -22,7 +22,7 @@ describe('Storage Module Test Suit', () => {
   const mockTask = {
     description: 'Clean my work place',
     completed: false,
-    index: 0
+    index: 0,
   };
 
   test('isLocalStorage', () => {
@@ -46,7 +46,7 @@ describe('Storage Module Test Suit', () => {
   });
 
   test('readLocalStorage', () => {
-    localStorage.removeItem(storage.getCollectionName())
+    localStorage.removeItem(storage.getCollectionName());
     expect(storage.readLocalStorage()).toBe(null);
     storage.createlocalStorage();
     expect(storage.readLocalStorage()).not.toBe(null);
@@ -60,7 +60,7 @@ describe('Storage Module Test Suit', () => {
       storage.saveToLocalStorage();
     };
     expect(tmpSaveToLocalStorage).toThrow(new Error('Empty Task'));
-    
+  
     storage.saveToLocalStorage(mockTask);
     expect(storage.saveToLocalStorage(mockTask).length).not.toBe(0);
   });
@@ -72,7 +72,7 @@ describe('Storage Module Test Suit', () => {
       storage.deleteFromLocalStorage(mockId);
     };
     expect(tmpDelete).toThrow(new Error('Unable To Delete From Empty Task Storage'));
-  
+
     // Create a local storage and delete from them
     storage.createlocalStorage();
     const idToDelete = mockTask.index;
