@@ -60,7 +60,7 @@ describe('Storage Module Test Suit', () => {
       storage.saveToLocalStorage();
     };
     expect(tmpSaveToLocalStorage).toThrow(new Error('Empty Task'));
-  
+
     storage.saveToLocalStorage(mockTask);
     expect(storage.saveToLocalStorage(mockTask).length).not.toBe(0);
   });

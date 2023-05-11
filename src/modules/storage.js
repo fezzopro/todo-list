@@ -26,7 +26,7 @@ class Storage {
       throw new Error('Empty Task');
     }
     this.localStorage.setItem(this.TASK_COLLECTION_NAME,
-    JSON.stringify([...this.readLocalStorage(), task]));
+      JSON.stringify([...this.readLocalStorage(), task]));
     return this.readLocalStorage();
   }
 
